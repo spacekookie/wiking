@@ -1,2 +1,3 @@
-# wiking
-Next generation wiki software
+# WikiNG
+
+Next generation wiki software.
