@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
-from .local_settings import secret_key
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -22,7 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret_key
+try:
+    import wiking.local_settings
+    SECRET_KEY = wiking.local_settings.SECRET_KEY
+except ImportError:
+    print('No local settings found. Copy the example and change it to your needs.')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
