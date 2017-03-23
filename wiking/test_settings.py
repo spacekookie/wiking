@@ -1,4 +1,4 @@
-from .settings import *
+from wiking.settings import *
 
 SECRET_KEY = 'test_supersecret'
 
