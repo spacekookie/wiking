@@ -11,6 +11,8 @@ install:
   - pip install pipenv
 # run tests
 script:
-  - pipenv install -d
-  - pipenv run pytest
-  - pipenv run codecov
+  - pipenv --bare install -d
+  - pipenv --bare run pytest
+after_success:
+  - pipenv --bare run coverage xml
+  - pipenv --bare run codecov
