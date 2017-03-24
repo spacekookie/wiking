@@ -6,7 +6,7 @@ from wiki.models import Page
 pytestmark = pytest.mark.django_db
 
 
-class PageTests:
+class TestPage:
     TEST_NAME = 'foobar'
 
     def test_model(self):
