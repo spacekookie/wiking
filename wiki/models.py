@@ -1,24 +1,23 @@
-from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.db import models
 
 
 def get_sentinel_user():
-    return get_user_model().objects.get_or_create(username='deleted', first_name='deleted', last_name='user')[0]
+    return User.objects.get_or_create(username='deleted', first_name='deleted', last_name='user')[0]
 
 
 class Page(models.Model):
-
     uuid = models.UUIDField(unique=True)
     name = models.CharField(max_length=255)
     revision = models.IntegerField()
-    author = models.ForeignKey(get_user_model(), related_name="pages", on_delete=models.Set(get_sentinel_user()))
+    author = models.ForeignKey(User, related_name="pages", on_delete=models.SET(get_sentinel_user))
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
 
 
-# class Author(models.Model):
+# class Profile(models.Model):
 #
 #     user = models.OneToOneField(User, on_delete=models.CASCADE)
 #

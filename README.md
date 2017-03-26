@@ -19,6 +19,13 @@ pipenv shell
 pipenv install
 ```
 
+  - Create local settings and set `SECRET_KEY`
+
+```
+cp wiking/local_settings{.sample,}.py
+$EDITOR wiking/local_settings.py
+```
+
   - Apply migrations
 
 ```
