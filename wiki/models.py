@@ -2,20 +2,26 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-def get_sentinel_user():
-    return User.objects.get_or_create(username='deleted', first_name='deleted', last_name='user')[0]
-
-
 class Page(models.Model):
     uuid = models.UUIDField(unique=True)
     name = models.CharField(max_length=255)
     revision = models.IntegerField()
-    author = models.ForeignKey(User, related_name="pages", on_delete=models.SET(get_sentinel_user))
+    parent = models.ForeignKey('Namespace', related_name='pages')
+    author = models.ForeignKey(User, related_name='pages')
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
 
+
+class Namespace(models.Model):
+    uuid = models.UUIDField(unique=True)
+    name = models.CharField(max_length=255)
+    parent = models.ForeignKey('Namespace', related_name='namespaces', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
 
 # class Profile(models.Model):
 #
