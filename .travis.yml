@@ -6,7 +6,7 @@ python:
   - "3.5"
   - "3.6"
   - "nightly"
-  - "pypy3"
+  #- "pypy3"
 # install dependencies
 install:
   - pip install pipenv
