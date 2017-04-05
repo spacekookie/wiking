@@ -17,7 +17,7 @@ class Page(models.Model):
 class Namespace(models.Model):
     uuid = models.UUIDField(unique=True)
     name = models.CharField(max_length=255)
-    parent = models.ForeignKey('Namespace', related_name='namespaces', blank=True, null=True)
+    parent = models.ForeignKey('Namespace', related_name='children', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
