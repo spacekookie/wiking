@@ -9,7 +9,9 @@ help:
 js:
 	yarn install
 
-	mkdir -p ${mkfile_path}static/{css,js,fonts}
+	mkdir -p ${mkfile_path}static/css
+	mkdir -p ${mkfile_path}static/js
+	mkdir -p ${mkfile_path}static/fonts
 
 	# bootstrap
 	cp node_modules/bootstrap/dist/css/bootstrap-theme.css ${mkfile_path}static/css/
