@@ -10,11 +10,11 @@ python:
 # install dependencies
 install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - exec bash
   - make js
   - pip install pipenv
   - yarn --version
   - pipenv --version
-  - python --version
 # run tests
 script:
   - pipenv install -d
