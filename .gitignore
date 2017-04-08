@@ -1,6 +1,10 @@
 Pipfile.lock
 .idea/
 
+# js bullshit
+yarn.lock
+node_modules/
+
 # Created by https://www.gitignore.io/api/linux,pycharm,python,django,vim
 
 ### Django ###

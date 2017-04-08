@@ -9,11 +9,16 @@ python:
   #- "pypy3"
 # install dependencies
 install:
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - make js
   - pip install pipenv
+  - yarn --version
+  - pipenv --version
+  - python --version
 # run tests
 script:
-  - pipenv --bare install -d
-  - pipenv --bare run pytest
+  - pipenv install -d
+  - pipenv run pytest
 after_success:
-  - pipenv --bare run coverage xml
-  - pipenv --bare run codecov
+  - pipenv run coverage xml
+  - pipenv run codecov
