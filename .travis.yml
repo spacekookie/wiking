@@ -10,7 +10,7 @@ python:
 # install dependencies
 install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - exec bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
   - make js
   - pip install pipenv
   - yarn --version
