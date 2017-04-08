@@ -3,6 +3,7 @@ url = "https://pypi.python.org/simple"
 verify_ssl = true
 
 [packages]
+django-registration = "*"
 Django = "*"
 
 [dev-packages]
@@ -10,5 +11,5 @@ pytest = "*"
 pytest-django = "*"
 pytest-cov = "*"
 codecov = "*"
-model_mommy = "*"
 q = "*"
+model_mommy = "*"

@@ -22,7 +22,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 try:
     import wiking.local_settings
+
     SECRET_KEY = wiking.local_settings.SECRET_KEY
+
+    ADMINS = wiking.local_settings.ADMINS
+
+    EMAIL_HOST = wiking.local_settings.EMAIL_HOST
+    EMAIL_PORT = wiking.local_settings.EMAIL_PORT
+    EMAIL_HOST_USER = wiking.local_settings.EMAIL_HOST_USER
+    EMAIL_HOST_PASSWORD = wiking.local_settings.EMAIL_HOST_PASSWORD
+    EMAIL_USE_TLS = wiking.local_settings.EMAIL_USE_TLS
+    DEFAULT_FROM_EMAIL = wiking.local_settings.DEFAULT_FROM_EMAIL
 except ImportError:
     print('No local settings found. Copy the example and change it to your needs.')
 
@@ -62,7 +72,7 @@ ROOT_URLCONF = 'wiking.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +136,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    #'/var/www/static/',
+]
+
+LOGIN_REDIRECT_URL = '/wiki'
+
+
+# django-registration settings
+
+ACCOUNT_ACTIVATION_DAYS = 7
