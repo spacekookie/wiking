@@ -13,12 +13,9 @@ install:
   - export PATH="$HOME/.yarn/bin:$PATH"
   - make js
   - pip install pipenv
-  - yarn --version
-  - pipenv --version
 # run tests
 script:
   - pipenv install -d
-  - pipenv run pytest
+  - pipenv run pytest --cov-report=xml
 after_success:
-  - pipenv run coverage xml
   - pipenv run codecov
