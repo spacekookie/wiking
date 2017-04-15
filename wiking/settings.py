@@ -25,8 +25,6 @@ try:
 
     SECRET_KEY = wiking.local_settings.SECRET_KEY
 
-    ADMINS = wiking.local_settings.ADMINS
-
     EMAIL_HOST = wiking.local_settings.EMAIL_HOST
     EMAIL_PORT = wiking.local_settings.EMAIL_PORT
     EMAIL_HOST_USER = wiking.local_settings.EMAIL_HOST_USER

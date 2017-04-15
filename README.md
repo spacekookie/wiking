@@ -15,7 +15,6 @@ Getting started
   - Create virtualenv and install dependencies
 
 ```
-pipenv shell
 pipenv install
 ```
 
@@ -46,7 +45,6 @@ Running the tests
   - Install dependencies
 
 ```
-pipenv shell
 pipenv install -d
 ```
 

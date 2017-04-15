@@ -1,8 +1,6 @@
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'supersecret'
 
-ADMINS = []
-
 EMAIL_HOST = 'smtp.example.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'testsite_app'
