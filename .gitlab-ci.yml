@@ -1,0 +1,34 @@
+stages:
+  - test
+  - coverage
+
+.test_template: &test_definition
+  stage: test
+  script:
+    - apt-get update -qy
+    - pip install pipenv
+    - pipenv install -d
+    - pipenv run pytest --cov-report=xml
+
+py34:
+  <<: *test_definition
+  image: "python:3.4"
+
+py35:
+  <<: *test_definition
+  image: "python:3.5"
+
+py36:
+  <<: *test_definition
+  image: "python:3.6"
+  artifacts:
+    paths:
+      - coverage.xml
+
+cov:
+  image: "python:3.6"
+  stage: coverage
+  script:
+    - apt-get update -qy
+    - pip install codecov
+    - codecov
