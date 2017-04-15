@@ -1,24 +1,33 @@
 stages:
+  - setup
   - test
   - coverage
+
+.setup_template: &setup_definition
+  stage: setup
+  script:
+    - apt-get update -qy
+    - make
+    - pip install pipenv
+    - pipenv install -d
 
 .test_template: &test_definition
   stage: test
   script:
-    - apt-get update -qy
-    - pip install pipenv
-    - pipenv install -d
     - pipenv run pytest --cov-report=xml
 
 py34:
+  <<: *setup_definition
   <<: *test_definition
   image: "python:3.4"
 
 py35:
+  <<: *setup_definition
   <<: *test_definition
   image: "python:3.5"
 
 py36:
+  <<: *setup_definition
   <<: *test_definition
   image: "python:3.6"
   artifacts:
