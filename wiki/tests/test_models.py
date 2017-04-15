@@ -39,6 +39,12 @@ class TestNamespace:
         assert obj.pk == 1, 'Should create namespace instance'
         assert str(obj) == self.TEST_NAME, 'Name should be set to %s' % self.TEST_NAME
 
+    # TODO: users namespace should be prepopulated
+    # def test_user_namespace(self):
+    #     obj = Namespace.objects.filter(name='users').first()
+    #
+    #     assert obj.name == 'users'
+
     def test_nesting(self):
         obj = mommy.make(Namespace)
         child = mommy.make(Namespace, parent=obj, name=self.TEST_NAME)
