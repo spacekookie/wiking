@@ -1,0 +1,8 @@
+codecov
+django
+django-registration
+model-mommy
+pytest
+pytest-cov
+pytest-django
+q
